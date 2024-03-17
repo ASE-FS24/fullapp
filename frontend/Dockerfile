@@ -20,18 +20,20 @@ RUN apt-get update && \
         python3 \
         python3-pip \
         groff \
+
+
         less \
         zip \
         iputils-ping
 
 RUN apt install -y xdg-utils 
 
-# Install AWS CLI using pip3
+# # Install AWS CLI using pip3
 RUN pip3 install awscli
 RUN pip3 install awscli-local
 
 # Install LocalStack using pip3
-RUN pip3 install localstack
+# RUN pip3 install localstack
 # RUN pip3 install awslocal
 
 # RUN nvm ls 

@@ -1,0 +1,12 @@
+#add / delete as you need
+node_modules
+npm-debug.log
+.DS_Store
+.env
+.git
+.gitignore
+*.md
+*.log
+*.txt
+*.json
+*.lock

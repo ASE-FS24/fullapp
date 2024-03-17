@@ -18,7 +18,8 @@ services:
     volumes:
       - './:/etc/localstack/init/ready.d/' # Mount your project directory to automatically run scripts
       - '/var/run/docker.sock:/var/run/docker.sock' # Mount the Docker socket to allow LocalStack to manage Docker containers
-      - './target/usermanager-0.0.1-SNAPSHOT.jar:/tmp/usermanager-0.0.1-SNAPSHOT.jar' # Mount the jar file to be used by the lambda
+      - './user-manager/target/usermanager-0.0.1-SNAPSHOT.jar:/tmp/usermanager-0.0.1-SNAPSHOT.jar' # Mount the jar file to be used by the lambda
+      - './post-manager/target/postmanager-0.0.1-SNAPSHOT.jar:/tmp/postmanager-0.0.1-SNAPSHOT.jar' # Mount the jar file to be used by the lambda
     networks:
       - network
 
@@ -33,8 +34,29 @@ services:
       - amazon.aws.accesskey=key
       - amazon.aws.secretkey=key2
       - DYNAMODB_IN_MEMORY=1
+    volumes:
+      - './user-manager/:/docker-entrypoint-initaws.d' # Mount your project directory to automatically run scripts
+      - '/var/run/docker.sock:/var/run/docker.sock' # Mount the Docker socket to allow LocalStack to manage Docker containers
     networks:
       - network
+
+  post-manager:
+    build:
+      context: .
+      dockerfile: ./post-manager/Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      - amazon.dynamodb.endpoint=http://localstack:4566/
+      - amazon.aws.accesskey=key
+      - amazon.aws.secretkey=key2
+    volumes:
+      - './post-manager/:/docker-entrypoint-initaws.d' # Mount your project directory to automatically run scripts
+      - '/var/run/docker.sock:/var/run/docker.sock' # Mount the Docker socket to allow LocalStack to manage Docker containers
+    networks:
+      - network
+    # depends_on:
+    #   - localstack
 
   frontend:
     build:

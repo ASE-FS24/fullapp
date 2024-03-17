@@ -20,10 +20,10 @@ ENV APP_HOME=/usr/app
 WORKDIR $APP_HOME/
 
 # Copy the compiled JAR into the image
-COPY ./user-manager/target/usermanager-0.0.1-SNAPSHOT.jar $APP_HOME/app.jar
+COPY ./post-manager/target/postmanager-0.0.1-SNAPSHOT.jar $APP_HOME/app.jar
 
-# Expose port 8080 (if your application requires it)
-EXPOSE 8080
+# Expose port 8081 (if your application requires it)
+EXPOSE 8081
 
 # Command to run the application
 CMD ["java", "-jar", "app.jar"]

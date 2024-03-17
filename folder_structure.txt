@@ -1,16 +1,29 @@
 .
+├── README.md
 ├── docker-compose.yml
 ├── folder_structure.txt
 ├── frontend
 │   ├── Dockerfile
 │   ├── README.md
 │   ├── init-s3-localstack.sh
-│   ├── node_modules
 │   ├── package-lock.json
 │   ├── package.json
 │   ├── public
 │   ├── src
 │   └── tsconfig.json
+├── post-manager
+│   ├── Dockerfile
+│   ├── LICENSE
+│   ├── README.md
+│   ├── docker-compose-localstack.yml
+│   ├── docker-compose-test.yml
+│   ├── init-dynamodb-lockalstack.sh
+│   ├── init-lamda-lockalstack.sh
+│   ├── mvnw
+│   ├── mvnw.cmd
+│   ├── pom.xml
+│   ├── src
+│   └── target
 ├── target
 │   └── usermanager-0.0.1-SNAPSHOT.jar
 └── user-manager
@@ -27,4 +40,4 @@
     ├── target
     └── template.yaml
 
-9 directories, 18 files
+11 directories, 29 files

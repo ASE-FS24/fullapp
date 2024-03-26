@@ -14,7 +14,7 @@ services:
       - LAMBDA_LIMITS_CODE_SIZE_ZIPPED=524288000
       - LAMBDA_LIMITS_CREATE_FUNCTION_REQUEST_SIZE=524288000
       - LAMBDA_DOCKER_NETWORK=network
-
+      - DYNAMODB_SHARE_DB=1
     volumes:
       - './scripts/:/etc/localstack/init/ready.d/' # Mount your project directory to automatically run scripts
       - '/var/run/docker.sock:/var/run/docker.sock' # Mount the Docker socket to allow LocalStack to manage Docker containers
@@ -46,6 +46,22 @@ services:
       - "3000:3000"
     environment:
       - amazon.s3.endpoint=http://localstack:4566/
+      - amazon.aws.accesskey=key
+      - amazon.aws.secretkey=key2
+    networks:
+      - network
+    depends_on:
+      - localstack
+
+  usermanager:
+    build:
+      context: user-manager
+      dockerfile: ./Dockerfile
+    container_name: nexusnet-usermanager
+    ports:
+      - "8080:8080" #Ports are exposed for debugging purposes
+    environment:
+      - amazon.dynamodb.endpoint=http://localstack:4566/
       - amazon.aws.accesskey=key
       - amazon.aws.secretkey=key2
     networks:

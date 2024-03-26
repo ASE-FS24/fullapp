@@ -31,6 +31,6 @@ bash reset
 
 ## TODO
 
-[] Scripts for MacOS and Windows
-[] Option to pull develop branches
-[] Option to select folder where to find projects
+[ ] Scripts for MacOS and Windows
+[ ] Option to pull develop branches
+[ ] Option to select folder where to find projects

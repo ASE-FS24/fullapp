@@ -37,5 +37,21 @@ services:
     depends_on:
       - localstack
 
+  frontend:
+    build:
+      context: frontend
+      dockerfile: ./Dockerfile
+    container_name: nexusnet-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - amazon.s3.endpoint=http://localstack:4566/
+      - amazon.aws.accesskey=key
+      - amazon.aws.secretkey=key2
+    networks:
+      - network
+    depends_on:
+      - localstack
+
 networks:
   network:

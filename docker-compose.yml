@@ -27,7 +27,7 @@ services:
       dockerfile: ./Dockerfile
     container_name: nexusnet-postmanager
     ports:
-      - "8081:8080" #Ports are exposed for debugging purposes
+      - "8081:8081" #Ports are exposed for debugging purposes
     environment:
       - amazon.dynamodb.endpoint=http://localstack:4566/
       - amazon.aws.accesskey=key

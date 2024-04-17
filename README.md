@@ -1,7 +1,7 @@
 # NexusNet
 This repo makes it easier to run the full NexusNet application. 
 
-## How to run (Linux)
+## How to run (Linux and MacOS)
 
 ### 1. Install dependencies
 
@@ -31,8 +31,12 @@ If you like to update the projects and you feel too lazy to pull them, you can u
 bash reset
 ```
 
+## How to run (Windows)
+
+The best option right now is to run it in an [emulated bash shell](https://itsfoss.com/install-bash-on-windows/).
+
 ## TODO
 
-- [ ] Scripts for MacOS and Windows
+- [ ] Scripts for Windows
 - [ ] Option to pull main branches
 - [ ] Option to select folder where to find projects

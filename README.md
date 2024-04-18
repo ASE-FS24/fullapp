@@ -39,9 +39,15 @@ bash reset
 
 ## How to run (Windows)
 
+## Option 1:
+
+Follow the instructions for Linux but use `compile.bat` instead of `compile` and `reset.bat` instead of `reset`.
+
+## Option 2:
+
 The best option right now is to run it in an [emulated bash shell](https://itsfoss.com/install-bash-on-windows/).
 
 ## TODO
 
-- [ ] Scripts for Windows
+- [X] Scripts for Windows
 - [X] Option to pull main branches

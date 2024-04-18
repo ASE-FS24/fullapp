@@ -13,7 +13,13 @@ You need to install `git`, `docker`, `docker compose`, `java` and `maven`.
 bash compile
 ```
 
-Right now the script fetches the `develop` branch. If you like to fetch another branch just do it in this directory (`fullapp`) using git.
+Right now the script fetches the `main` branch. If you like to fetch another branch **from all the projects** just write the branch name as the first argument. If you want to fetch delevop branches use the following command: 
+
+```
+bash compile develop
+```
+
+If you want to test your **local version**, copy your project folder inside the root of this project.
 
 ### 3. Run the project
 
@@ -38,5 +44,4 @@ The best option right now is to run it in an [emulated bash shell](https://itsfo
 ## TODO
 
 - [ ] Scripts for Windows
-- [ ] Option to pull main branches
-- [ ] Option to select folder where to find projects
+- [X] Option to pull main branches

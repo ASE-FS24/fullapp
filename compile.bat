@@ -4,22 +4,16 @@ rem Args
 set BRANCH=%1%
 if "%BRANCH%"=="" set BRANCH=main
 
-rem Variables - Color
-set "RED=\033[1;31m"
-set "GREEN=\033[1;32m"
-set "NOCOLOR=\033[0m"
-
 echo.
 
-echo Step 1: %GREEN%checking dependencies%NOCOLOR%
+echo Step 1: checking dependencies
 
 rem List of executables to check
-set "executables=docker mvn git"
+set "executables=docker git mvn"
 
 rem Checks if every executable is installed
 for %%i in (%executables%) do (
-    where %%i >nul 2>nul
-    if errorlevel 1 (
+    where %%i | findstr . >nul || (
         echo %%i could not be found
         exit /b 1
     )
@@ -29,7 +23,7 @@ echo All executables are installed
 
 echo.
 
-echo Step 2: %GREEN%cloning repositories%NOCOLOR%
+echo Step 2: cloning repositories
 
 set "repos=https://github.com/ASE-FS24/user-manager https://github.com/ASE-FS24/post-manager https://github.com/ASE-FS24/frontend"
 
@@ -41,7 +35,7 @@ echo All repositories cloned
 
 echo.
 
-echo Step 3: %GREEN%compiling user-manager%NOCOLOR%
+echo Step 3: compiling user-manager
 
 cd user-manager
 mvn -B package -DfinalName=usermanager -DskipTests --file pom.xml
@@ -52,7 +46,7 @@ echo Compiled user-manager
 
 echo.
 
-echo Step 4: %GREEN%compiling post-manager%NOCOLOR%
+echo Step 4: compiling post-manager
 
 cd post-manager
 mvn -B package -DfinalName=postmanager -DskipTests --file pom.xml
@@ -60,7 +54,7 @@ cd ..
 
 echo Compiled post-manager
 
-echo Step 5: %GREEN%copying scripts%NOCOLOR%
+echo Step 5: copying scripts
 
 mkdir scripts
 
@@ -76,4 +70,4 @@ for /r post-manager %%f in (*.sh) do (
 
 echo.
 
-echo %GREEN%Done.%NOCOLOR% You can now run the docker-compose file to start the application.
+echo Done. You can now run the docker-compose file to start the application.

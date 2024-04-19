@@ -1,7 +1,7 @@
 # NexusNet
 This repo makes it easier to run the full NexusNet application. 
 
-## How to run (Linux)
+## How to run (Linux and MacOS)
 
 ### 1. Install dependencies
 
@@ -13,7 +13,13 @@ You need to install `git`, `docker`, `docker compose`, `java` and `maven`.
 bash compile
 ```
 
-Right now the script fetches the `develop` branch. If you like to fetch another branch just do it in this directory (`fullapp`) using git.
+Right now the script fetches the `main` branch. If you like to fetch another branch **from all the projects** just write the branch name as the first argument. If you want to fetch delevop branches use the following command: 
+
+```
+bash compile develop
+```
+
+If you want to test your **local version**, copy your project folder inside the root of this project.
 
 ### 3. Run the project
 
@@ -31,8 +37,17 @@ If you like to update the projects and you feel too lazy to pull them, you can u
 bash reset
 ```
 
+## How to run (Windows)
+
+## Option 1:
+
+Follow the instructions for Linux but use `compile.bat` instead of `compile` and `reset.bat` instead of `reset`.
+
+## Option 2:
+
+The best option right now is to run it in an [emulated bash shell](https://itsfoss.com/install-bash-on-windows/).
+
 ## TODO
 
-- [ ] Scripts for MacOS and Windows
-- [ ] Option to pull main branches
-- [ ] Option to select folder where to find projects
+- [X] Scripts for Windows
+- [X] Option to pull main branches

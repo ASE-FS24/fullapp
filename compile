@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Args
+BRANCH=${1:-main}
+
 #Variables - Color
 RED="\033[1;31m"
 GREEN="\033[1;32m"
@@ -28,8 +31,8 @@ echo -e "Step 2: ${GREEN}cloning repositories${NOCOLOR}"
 
 repos=("https://github.com/ASE-FS24/user-manager" "https://github.com/ASE-FS24/post-manager" "https://github.com/ASE-FS24/frontend")
 
-for repo in in "${repos[@]}"; do
-    git clone -b develop "$repo"
+for repo in "${repos[@]}"; do
+    git clone -b $BRANCH "$repo"
 done
 
 echo "All repositories cloned"
@@ -40,9 +43,6 @@ echo -e "Step 3: ${GREEN}compiling user-manager${NOCOLOR}"
 
 cd user-manager
 mvn -B package -DfinalName=usermanager -DskipTests --file pom.xml
-
-#This will not be needed after the pull request will be merged
-for f in target/*.jar; do mv -v "$f" "target/usermanager.jar"; done
 
 cd ..
 

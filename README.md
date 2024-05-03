@@ -31,33 +31,39 @@ docker compose up --build
 ```
 * **You will now be able to use the app at [localhost:3000](http://localhost:3000).**
 
-### 3a. Run the project in AWS
+### 3b. Run the project in AWS using jar files 
 Steps:
   1. Install terraform: [Terraform Website](https://developer.hashicorp.com/terraform/install)
   2. Run the code in the following order
 ```
-############# SET THE TERRAFORM VARIABLES ##############
-
+#### SET THE TERRAFORM VARIABLES ####
 export TF_VAR_aws_access_key= <YOUR_AWS_ACCESS_KEY> #Ex: "ABCD1EF2GHQIJ33KLMN4"
 export TF_VAR_aws_secret_key= <YOUR_AWS_SECRET_KEY> #Ex: "ABCaDEb0cFdeGHI+1KL2MNfgOhOi+sWDEASSDDA"
 
-############# RUN TERRAFORM COMMANDS ##############
+<- terraform initialize and plan>
 terraform init
 terraform plan
-terraform apply -auto-approve
 
-#once done 
+<- run this command again and agian till you dont see any errors, and all end point urls other than resource already existing ones>
+terraform apply -auto-approve #redo till all URLs Published 
+
+<- run this to destroy all resources you have created>
 terraform destroy -auto-approve
 
 ```
+**IMPORTANT:**
+
+**YOU MAY SEE "CORS" ERRORS IN FRONT-END CONSOLE AS AWS TAKES TIME TO RESOLVE THE POLICIES**
+
 3. The changes you may have to make
     1. Go to the `terraform-jars` folder and set your desired variables for 
-        1. AWS variables @ 
-        2. Frontend @ 
-        3. Usermanager @
-        4. Postmanager @
+        1. AWS variables @ `variables-common.tf`
+        2. Frontend @ `variables-frontend.tf`
+        3. Usermanager @ `variables-usermanager.tf`
+        4. Postmanager @ `variables-postmanager.tf`
+        5. API Gateway @ `variables-api.tf`
 
-* **You will now be able to use the app in AWs at  [localhost:3000](http://localhost:3000).**
+* **You will now be able to use the app in AWs at  [Generated S3 URL](http://localhost:3000).**
 
 
 ### 4. Reset (if needed)

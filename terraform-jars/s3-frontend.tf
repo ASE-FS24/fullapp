@@ -5,8 +5,8 @@ resource "null_resource" "run_shell_script" {
   }
 
   provisioner "local-exec" {
-    # Specify the path to your shell script
-    command = "/root/nexus-net/frontbackallwithgits/fullapp/terraform-jars/build_frontend.sh"
+    # Specify the path to your shell script <- have to fix this
+    command = "./build_frontend.sh"
   }
 }
 

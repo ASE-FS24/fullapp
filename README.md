@@ -46,15 +46,18 @@ terraform init
 terraform plan
 terraform apply -auto-approve
 
+#once done 
+terraform destroy -auto-approve
+
 ```
 3. The changes you may have to make
-    1. Go to the `terraform` folder and set your desired variables for 
+    1. Go to the `terraform-jars` folder and set your desired variables for 
         1. AWS variables @ 
         2. Frontend @ 
         3. Usermanager @
         4. Postmanager @
 
-* **You will now be able to use the app at [localhost:3000](http://localhost:3000).**
+* **You will now be able to use the app in AWs at  [localhost:3000](http://localhost:3000).**
 
 
 ### 4. Reset (if needed)

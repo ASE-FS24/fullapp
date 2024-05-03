@@ -15,7 +15,7 @@ resource "aws_lambda_function" "usermanager_api" {
 
   s3_bucket = aws_s3_bucket.usermanager.bucket
   s3_key    = "${var.deployment_number}/${var.usermanager_jar}"
-  handler          = var.pm_lambda_function_handler
+  handler          = var.um_lambda_function_handler
   timeout          = 60
   memory_size      = 256
   runtime = var.lambda_runtime

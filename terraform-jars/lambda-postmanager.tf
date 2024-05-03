@@ -17,7 +17,7 @@ resource "aws_lambda_function" "postmanager_api" {
 
   s3_bucket = aws_s3_bucket.postmanager.bucket
   s3_key    = "${var.deployment_number}/${var.postmanager_jar}"
-  handler          = var.um_lambda_function_handler
+  handler          = var.pm_lambda_function_handler
   timeout          = 60
   memory_size      = 256
   runtime = var.lambda_runtime

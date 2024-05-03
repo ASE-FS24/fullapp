@@ -33,14 +33,16 @@ cd "$CURRENT_DIR"
 # Check if all URLs are not None
 if [ ! -z "${USER_API_ENDPOINT}" ] && [ ! -z "${POST_API_ENDPOINT}" ] && [ ! -z "$(terraform output -raw frontend_url)" ]; then
   # Print success message if all URLs are not None
-  echo "Successfully generated URLs:"
+  echo "<-------------------------- Successfully generated all the required URLs -------------------------->"
   echo "User Manager API Endpoint: ${USER_API_ENDPOINT}"
   echo "Post Manager API Endpoint: ${POST_API_ENDPOINT}"
   echo "Front hosted S3 URL: $(terraform output -raw frontend_url)"
-  echo "run terraform apply -auto-approve just once - this is a repeating message, only applies for the first time." 
+  # terraform apply -auto-approve
+  echo "<----------------- Run terraform 2 times now -- After 2 times, ignore this message -------------------->" 
 
 else
   # Print error message if any URL is None
   echo "Error: One or more URLs are not available."
-  echo "run terraform apply -auto-approve"
+  echo "<------------------------- RUN terraform apply -auto-approve ------------------------------>"
+  # terraform apply -auto-approve
 fi

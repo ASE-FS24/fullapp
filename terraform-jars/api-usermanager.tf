@@ -82,5 +82,5 @@ resource "aws_api_gateway_deployment" "usermanager" {
 resource "aws_api_gateway_stage" "usermanager" {
   deployment_id = aws_api_gateway_deployment.usermanager.id
   rest_api_id   = aws_api_gateway_rest_api.usermanager.id
-  stage_name    = "${var.api_stage_name}"
+  stage_name    = "um-${var.api_stage_name}"
 }

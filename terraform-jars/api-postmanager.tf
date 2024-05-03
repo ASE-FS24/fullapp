@@ -82,5 +82,5 @@ resource "aws_api_gateway_deployment" "postmanager" {
 resource "aws_api_gateway_stage" "postmanager" {
   deployment_id = aws_api_gateway_deployment.postmanager.id
   rest_api_id   = aws_api_gateway_rest_api.postmanager.id
-  stage_name    = "${var.api_stage_name}"
+  stage_name    = "pm-${var.api_stage_name}"
 }

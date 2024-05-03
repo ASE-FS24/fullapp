@@ -1,6 +1,6 @@
-# output "cloudfront_frontend_domain_name" {
-#   value = aws_cloudfront_distribution.default.domain_name
-# }
+output "cloudfront_url" {
+  value = aws_cloudfront_distribution.nexusnet.domain_name
+}
 
 output "usermanager_endpoint_url" {
     description = "usermanager api end point url:"

@@ -34,7 +34,9 @@ docker compose up --build
 ### 3b. Run the project in AWS using jar files 
 Steps:
   1. Install terraform: [Terraform Website](https://developer.hashicorp.com/terraform/install)
-  2. Run the code in the following order
+  2. Paste the jar files in the `terraform-jars/jars/` folder. \
+  (We do not automate this so that you can test with your own jars too)
+  3. Run the code in the following order
 ```
 #### SET THE TERRAFORM VARIABLES ####
 export TF_VAR_aws_access_key= <YOUR_AWS_ACCESS_KEY> #Ex: "ABCD1EF2GHQIJ33KLMN4"

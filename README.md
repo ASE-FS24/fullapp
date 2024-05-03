@@ -53,8 +53,7 @@ terraform apply -auto-approve #redo till all URLs Published
 terraform destroy -auto-approve
 
 ```
-**IMPORTANT:**
-
+**IMPORTANT:**\
 **YOU MAY SEE "CORS" ERRORS IN FRONT-END CONSOLE AS AWS TAKES TIME TO RESOLVE THE POLICIES**
 
 3. The changes you may have to make

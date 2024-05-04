@@ -29,7 +29,7 @@ echo
 
 echo -e "Step 2: ${GREEN}cloning repositories${NOCOLOR}"
 
-repos=("https://github.com/ASE-FS24/user-manager" "https://github.com/ASE-FS24/post-manager" "https://github.com/ASE-FS24/frontend")
+repos=("https://github.com/ASE-FS24/user-manager" "https://github.com/ASE-FS24/post-manager" "https://github.com/ASE-FS24/frontend" "https://github.com/ASE-FS24/chat-manager")
 
 for repo in "${repos[@]}"; do
     git clone -b $BRANCH "$repo"
@@ -58,6 +58,16 @@ cd ..
 
 echo "Compiled post-manager"
 
+echo
+
+echo -e "Step 4: ${GREEN}compiling chat-manager${NOCOLOR}"
+
+cd chat-manager
+mvn -B package -DfinalName=chatmanager -DskipTests --file pom.xml
+cd ..
+
+echo "Compiled chat-manager"
+
 echo -e "Step 5: ${GREEN}copying scripts${NOCOLOR}"
 
 mkdir scripts
@@ -65,6 +75,7 @@ mkdir scripts
 find frontend/ -maxdepth 1 -name '*.sh' -exec sh -c 'cp "$1" scripts/frontend-"$(basename "$1")"' _ {} \;
 find user-manager/ -maxdepth 1 -name '*.sh' -exec sh -c 'cp "$1" scripts/user-manager-"$(basename "$1")"' _ {} \;
 find post-manager/ -maxdepth 1 -name '*.sh' -exec sh -c 'cp "$1" scripts/post-manager-"$(basename "$1")"' _ {} \;
+find chat-manager/ -maxdepth 1 -name '*.sh' -exec sh -c 'cp "$1" scripts/chat-manager-"$(basename "$1")"' _ {} \;
 
 chmod +x scripts/*.sh 
 

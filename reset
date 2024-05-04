@@ -9,6 +9,7 @@ echo -e "${GREEN}Deleting projects and scripts${NOCOLOR}"
 
 rm -rf user-manager
 rm -rf post-manager
+rm -rf chat-manager
 rm -rf frontend
 rm -rf scripts
 

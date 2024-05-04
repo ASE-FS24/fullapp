@@ -32,6 +32,7 @@ services:
       - "8081:8081" #Ports are exposed for debugging purposes
     environment:
       - amazon.dynamodb.endpoint=http://localstack:4566/
+      - amazon.s3.endpoint=http://localstack:4566/
       - amazon.aws.accesskey=key
       - amazon.aws.secretkey=key2
     networks:
@@ -80,6 +81,7 @@ services:
       - "8080:8080" #Ports are exposed for debugging purposes
     environment:
       - amazon.dynamodb.endpoint=http://localstack:4566/
+      - amazon.s3.endpoint=http://localstack:4566/
       - amazon.aws.accesskey=key
       - amazon.aws.secretkey=key2
     networks:

@@ -25,7 +25,7 @@ echo.
 
 echo Step 2: cloning repositories
 
-set "repos=https://github.com/ASE-FS24/user-manager https://github.com/ASE-FS24/post-manager https://github.com/ASE-FS24/frontend"
+set "repos=https://github.com/ASE-FS24/user-manager https://github.com/ASE-FS24/post-manager https://github.com/ASE-FS24/frontend https://github.com/ASE-FS24/chat-manager"
 
 for %%r in (%repos%) do (
     git clone -b %BRANCH% "%%r"
@@ -54,6 +54,16 @@ cd ..
 
 echo Compiled post-manager
 
+echo.
+
+echo Step 4: compiling chat-manager
+
+cd chat-manager
+mvn -B package -DfinalName=chatmanager -DskipTests --file pom.xml
+cd ..
+
+echo Compiled chat-manager
+
 echo Step 5: copying scripts
 
 mkdir scripts
@@ -66,6 +76,9 @@ for /r user-manager %%f in (*.sh) do (
 )
 for /r post-manager %%f in (*.sh) do (
     copy "%%f" scripts\post-manager-"%%~nxf"
+)
+for /r chat-manager %%f in (*.sh) do (
+    copy "%%f" scripts\chat-manager-"%%~nxf"
 )
 
 echo.

@@ -3,5 +3,5 @@ variable "api_path" {
 }
 
 variable "api_stage_name" {
-  default = "jar"
+  default = "jar2"
 }

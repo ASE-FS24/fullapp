@@ -1,14 +1,14 @@
 ####### Postmanager Variables #######
 variable "postmanager_name" {
-   default = "postmanager-jar"
+  default = "postmanager-jar2"
 }
 
 variable "postmanager_jar_loc" {
-  default = "./jars"
+  default = "../post-manager/target"
 }
 
 variable "postmanager_jar" {
-  default = "original-postmanager.jar"  
+  default = "original-postmanager.jar"
 }
 
 variable "pm_lambda_function_handler" {

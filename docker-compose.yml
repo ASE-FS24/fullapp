@@ -39,6 +39,22 @@ services:
     depends_on:
       - localstack
 
+  chat-manager:
+    build:
+      context: chat-manager
+      dockerfile: ./Dockerfile
+    container_name: nexusnet-chatmanager
+    ports:
+      - "8082:8082" #Ports are exposed for debugging purposes
+    environment:
+      - amazon.dynamodb.endpoint=http://localstack:4566/
+      - amazon.aws.accesskey=key
+      - amazon.aws.secretkey=key2
+    networks:
+      - network
+    depends_on:
+      - localstack
+
   frontend:
     build:
       context: frontend

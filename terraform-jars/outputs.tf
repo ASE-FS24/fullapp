@@ -11,6 +11,10 @@ output "postmanager_endpoint_url" {
     description = "Postmanager api end point url:"
      value = "${aws_api_gateway_stage.postmanager.invoke_url}/"
 }
+output "chatmanager_endpoint_url" {
+    description = "Chatmanager api end point url:"
+     value = "${aws_api_gateway_stage.chatmanager.invoke_url}/"
+}
 
 output "frontend_url" {
   value = "http://${aws_s3_bucket.frontend.bucket}.s3-website-${var.aws_region}.amazonaws.com/"

@@ -1,8 +1,8 @@
 ####### Common Variables #######
 variable "build_folder" {
-   default = "../frontend/build"
+  default = "../frontend/build"
 }
 
 variable "frontend_bucket_name" {
-   default = "frontend-jar"
+  default = "frontend-jar2"
 }

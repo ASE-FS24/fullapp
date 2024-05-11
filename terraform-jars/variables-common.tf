@@ -6,12 +6,12 @@ variable "project_name" {
 
 variable "deployment_number" {
   type    = string
-  default = "0.0.1"
+  default = "0.0.2"
 }
 
 variable "aws_region" {
-  type = string
-  default = "us-east-1"  #eu-central-1
+  type    = string
+  default = "us-east-1" #eu-central-1
 }
 
 variable "aws_access_key" {

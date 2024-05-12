@@ -13,7 +13,7 @@ echo
 echo -e "Step 1: ${GREEN}checking dependencies${NOCOLOR}"
 
 # List of executables to check
-executables=("docker" "mvn" "git")
+executables=("docker" "git")
 
 # Checks if every executable is installed
 for cmd in "${executables[@]}"; do
@@ -39,36 +39,7 @@ echo "All repositories cloned"
 
 echo 
 
-echo -e "Step 3: ${GREEN}compiling user-manager${NOCOLOR}"
-
-cd user-manager
-mvn -B package -DfinalName=usermanager -DskipTests --file pom.xml
-
-cd ..
-
-echo "Compiled user-manager"
-
-echo
-
-echo -e "Step 4: ${GREEN}compiling post-manager${NOCOLOR}"
-
-cd post-manager
-mvn -B package -DfinalName=postmanager -DskipTests --file pom.xml
-cd ..
-
-echo "Compiled post-manager"
-
-echo
-
-echo -e "Step 4: ${GREEN}compiling chat-manager${NOCOLOR}"
-
-cd chat-manager
-mvn -B package -DfinalName=chatmanager -DskipTests --file pom.xml
-cd ..
-
-echo "Compiled chat-manager"
-
-echo -e "Step 5: ${GREEN}copying scripts${NOCOLOR}"
+echo -e "Step 3: ${GREEN}copying scripts${NOCOLOR}"
 
 mkdir scripts
 

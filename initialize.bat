@@ -9,7 +9,7 @@ echo.
 echo Step 1: checking dependencies
 
 rem List of executables to check
-set "executables=docker git mvn"
+set "executables=docker git"
 
 rem Checks if every executable is installed
 for %%i in (%executables%) do (
@@ -35,36 +35,7 @@ echo All repositories cloned
 
 echo.
 
-echo Step 3: compiling user-manager
-
-cd user-manager
-mvn -B package -DfinalName=usermanager -DskipTests --file pom.xml
-
-cd ..
-
-echo Compiled user-manager
-
-echo.
-
-echo Step 4: compiling post-manager
-
-cd post-manager
-mvn -B package -DfinalName=postmanager -DskipTests --file pom.xml
-cd ..
-
-echo Compiled post-manager
-
-echo.
-
-echo Step 4: compiling chat-manager
-
-cd chat-manager
-mvn -B package -DfinalName=chatmanager -DskipTests --file pom.xml
-cd ..
-
-echo Compiled chat-manager
-
-echo Step 5: copying scripts
+echo Step 3: copying scripts
 
 mkdir scripts
 

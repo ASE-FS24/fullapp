@@ -70,8 +70,11 @@ services:
       - network
     depends_on:
       - localstack
+      - post-manager
+      - chat-manager
+      - user-manager
 
-  usermanager:
+  user-manager:
     build:
       context: user-manager
       dockerfile: ./Dockerfile
